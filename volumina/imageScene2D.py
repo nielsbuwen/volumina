@@ -124,6 +124,37 @@ class ImageScene2D(QGraphicsScene):
         """
         return bool(self._swapped) != bool(self._rotation % 2)  # xor
 
+    def adjust_object_position(self, x, y):
+        """
+        Calculates the new coordinates for an object.
+        This is necessary when the scene was flipped or rotated
+        :param x: the x coordinate of the object
+        :type x: int
+        :param y: the y coordinate of the  object
+        :type y: int
+        :return: the new x and y coordinates
+        "rtype: (int, int)
+        """
+        w, h = self.dataShape
+
+        if self._rotation == 1:
+            if not self._swapped:
+                            y = h - y
+            else:
+                x = w - x
+        elif self._rotation == 2:
+            x = w - x
+            y = h - y
+        elif self._rotation == 3:
+            if not self._swapped:
+                x = w - x
+            else:
+                y = h - y
+
+        if self.is_swapped:
+            x, y = y, x
+        return x, y
+
     @property
     def stackedImageSources(self):
         return self._stackedImageSources
