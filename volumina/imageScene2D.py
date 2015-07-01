@@ -156,6 +156,13 @@ class ImageScene2D(QGraphicsScene):
         return x, y
 
     @property
+    def orientation(self):
+        rotate = self._rotation * 90
+        if self._swapped:
+            rotate -= 90
+        return rotate, -1 if self._swapped else 1
+
+    @property
     def stackedImageSources(self):
         return self._stackedImageSources
 
