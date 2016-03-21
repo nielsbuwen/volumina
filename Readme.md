@@ -1,4 +1,4 @@
-**Volumina** - Volume Slicing and Editing Library
+lol**Volumina** - Volume Slicing and Editing Library
 =============================================
 
 [![Circle CI](https://circleci.com/gh/ilastik/volumina.svg?style=svg)](https://circleci.com/gh/ilastik/volumina)
